@@ -1,11 +1,11 @@
 package websocket
 
 import (
+	"github.com/mazafard/ferferi/pkg/logger"
 	"net/http"
 	"strconv"
 
 	"github.com/gorilla/websocket"
-	"github.com/mazafard/ferferi/pkg/logger"
 )
 
 type WebSocketServerConfig struct {

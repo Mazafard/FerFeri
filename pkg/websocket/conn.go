@@ -80,9 +80,7 @@ func (conn *WebSocketConn) ReadMessage() {
 	}
 }
 
-/*
-* Send |message| to the connection.
- */
+// Send /*
 func (conn *WebSocketConn) Send(message string) error {
 	logger.Infof("Send data: %s", message)
 	conn.mutex.Lock()
@@ -93,17 +91,15 @@ func (conn *WebSocketConn) Send(message string) error {
 	return conn.socket.WriteMessage(websocket.TextMessage, []byte(message))
 }
 
-/*
-* Close conn.
- */
+// Close /*
 func (conn *WebSocketConn) Close() {
 	conn.mutex.Lock()
 	defer conn.mutex.Unlock()
 	if conn.closed == false {
-		logger.Infof("Close ws conn now : ", conn)
+		logger.Infof("Close ws conn now : %v", conn)
 		conn.socket.Close()
 		conn.closed = true
 	} else {
-		logger.Warnf("Transport already closed :", conn)
+		logger.Warnf("Transport already closed : %v", conn)
 	}
 }
